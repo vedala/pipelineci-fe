@@ -10,6 +10,8 @@ import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import SignupButton from './components/Signup';
 import Home from './components/Home';
+import PageNotFound from './components/PageNotFound';
+import AuthenticationGuard from './components/AuthenticationGuard';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -25,8 +27,15 @@ function App() {
           : <LogoutButton />
         }
         <Routes>
-          <Route path="/" element={<Landing />}/>
-          <Route path="/home" element={<Home />}/>
+          <Route
+            path="/"
+            element={<Landing />}
+          />
+          <Route
+            path="/home"
+            element={<AuthenticationGuard component={Home} />}
+          />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </Router>
