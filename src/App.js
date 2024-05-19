@@ -12,6 +12,7 @@ import SignupButton from './components/Signup';
 import Home from './components/Home';
 import PageNotFound from './components/PageNotFound';
 import AuthenticationGuard from './components/AuthenticationGuard';
+import CreateOrganization from './components/CreateOrganization';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -35,7 +36,14 @@ function App() {
             path="/home"
             element={<AuthenticationGuard component={Home} />}
           />
-          <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="/create-organization"
+            element={<AuthenticationGuard component={CreateOrganization} />}
+          />
+          <Route
+            path="*"
+            element={<PageNotFound />}
+          />
         </Routes>
       </div>
     </Router>

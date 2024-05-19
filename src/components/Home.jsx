@@ -4,7 +4,6 @@ import LogoutButton from "./LogoutButton";
 function Home() {
   return (
     <>
-      <LogoutButton />
       <h1>PipelineCI Home Page</h1>
       <Link to="/create-organization">Create Organization</Link>
     </>
