@@ -9,6 +9,7 @@ import Landing from './components/Landing';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import SignupButton from './components/Signup';
+import Home from './components/Home';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -25,6 +26,7 @@ function App() {
         }
         <Routes>
           <Route path="/" element={<Landing />}/>
+          <Route path="/home" element={<Home />}/>
         </Routes>
       </div>
     </Router>
