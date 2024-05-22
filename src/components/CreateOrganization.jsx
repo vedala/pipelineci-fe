@@ -1,6 +1,41 @@
+import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
 function CreateOrganization() {
+  const [orgName, setOrgName] = useState("");
+
+  const { getAccessTokenSilently } = useAuth0();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const token = await getAccessTokenSilently();
+    } catch(err) {
+      console.error("Error on form submit: ", err);
+      throw err;
+    }
+  }
+
+  function handleChange(e) {
+    setOrgName(e.target.value);
+  }
+
   return (
-    <h1>Create Organization</h1>
+    <>
+      <h1>Create Organization</h1>
+
+      <form onSubmit={handleSubmit}>
+        <label>
+          <p>Organization Name</p>
+          <input
+            name="name"
+            value={orgName}
+            onChange={handleChange}
+          />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </>
   );
 }
 
