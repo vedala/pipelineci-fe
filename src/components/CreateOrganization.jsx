@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
+
+const PIPELINECI_API_URL = process.env.REACT_APP_PIPELINECI_API_URL;
 
 function CreateOrganization() {
   const [orgName, setOrgName] = useState("");
@@ -10,6 +13,12 @@ function CreateOrganization() {
     e.preventDefault();
     try {
       const token = await getAccessTokenSilently();
+      await axios.post(`${PIPELINECI_API_URL}/organizations`, {
+        orgName
+      }, {
+        headers: { 'Authorization': `Bearer: ${token}`}
+      });
+      alert("Organization created");
     } catch(err) {
       console.error("Error on form submit: ", err);
       throw err;
