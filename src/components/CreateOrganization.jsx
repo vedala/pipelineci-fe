@@ -18,7 +18,7 @@ function CreateOrganization() {
       }, {
         headers: { 'Authorization': `Bearer: ${token}`}
       });
-      alert("Organization created");
+      window.location.href = "https://github.com/apps/pipelineci2024/installations/new";
     } catch(err) {
       console.error("Error on form submit: ", err);
       throw err;
@@ -42,7 +42,7 @@ function CreateOrganization() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit">Next</button>
       </form>
     </>
   );
