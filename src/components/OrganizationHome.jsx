@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-function Landing() {
+function OrganizationHome() {
   const { organizationId } = useParams();
   return (
     <>
@@ -10,4 +10,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default OrganizationHome;
