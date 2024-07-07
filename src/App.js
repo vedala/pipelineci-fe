@@ -14,7 +14,7 @@ import PageNotFound from './components/PageNotFound';
 import AuthenticationGuard from './components/AuthenticationGuard';
 import CreateOrganization from './components/CreateOrganization';
 import OrganizationHome from './components/OrganizationHome';
-import CreateOrganizationCallback from './components/CreateOrganizationCallback';
+import CallbackEndpoint from './components/CallbackEndpoint';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -48,7 +48,7 @@ function App() {
           />
           <Route
             path="/callback-endpoint"
-            element={<AuthenticationGuard component={CreateOrganizationCallback}/>}
+            element={<AuthenticationGuard component={CallbackEndpoint}/>}
           />
           <Route
             path="*"
