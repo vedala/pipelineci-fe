@@ -47,7 +47,7 @@ function App() {
             element={<AuthenticationGuard component={CreateOrganization} />}
           />
           <Route
-            path="/callback-endpoint"
+            path="/callback-redirect-endpoint"
             element={<AuthenticationGuard component={CallbackEndpoint}/>}
           />
           <Route
