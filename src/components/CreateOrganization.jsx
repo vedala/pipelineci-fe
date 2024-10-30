@@ -16,7 +16,7 @@ function CreateOrganization() {
       await axios.post(`${PIPELINECI_API_URL}/organizations`, {
         orgName
       }, {
-        headers: { 'Authorization': `Bearer: ${token}`}
+        headers: { 'Authorization': `Bearer ${token}`}
       });
       window.location.href = "https://github.com/apps/pipelineci2024/installations/new";
     } catch(err) {
