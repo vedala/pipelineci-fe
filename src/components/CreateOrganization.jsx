@@ -13,12 +13,15 @@ function CreateOrganization() {
     e.preventDefault();
     try {
       const token = await getAccessTokenSilently();
-      await axios.post(`${PIPELINECI_API_URL}/organizations`, {
+      const postOrgResponse = await axios.post(`${PIPELINECI_API_URL}/organizations`, {
         orgName
       }, {
         headers: { 'Authorization': `Bearer ${token}`}
       });
-      window.location.href = "https://github.com/apps/pipelineci2024/installations/new";
+
+      const createdOrgId = postOrgResponse.data.id;
+
+      window.location.href = `https://github.com/apps/pipelineci2024/installations/new?state=${createdOrgId}`;
     } catch(err) {
       console.error("Error on form submit: ", err);
       throw err;
