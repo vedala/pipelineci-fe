@@ -15,7 +15,10 @@ console.log("user=", user);
     async function fetchData() {
       const token = await getAccessTokenSilently();
       await axios.get(`${PIPELINECI_API_URL}/organizations?user=${user.name}`, {
-        headers: { 'Authorization': `Bearer ${token}`}
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'ngrok-skip-browser-warning': '1',
+        }
       })
       .then(res => {
         const orgData = res.data;
