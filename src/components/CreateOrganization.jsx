@@ -20,8 +20,15 @@ function CreateOrganization() {
       });
 
       const createdOrgId = postOrgResponse.data.id;
+      const location = window.location;
 
-      window.location.href = `https://github.com/apps/pipelineci2024/installations/new?state=${createdOrgId}`;
+      const stateValue = JSON.stringify({
+        orgId: createdOrgId,
+        redirectUrl: location.origin,
+      });
+
+      window.location.href = `https://github.com/apps/pipelineci2024/installations/new?state=${stateValue}`;
+
     } catch(err) {
       console.error("Error on form submit: ", err);
       throw err;
