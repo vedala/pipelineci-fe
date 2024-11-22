@@ -14,11 +14,21 @@ console.log("user=", user);
   useEffect(() => {
     async function fetchData() {
       const token = await getAccessTokenSilently();
-      await axios.get(`${PIPELINECI_API_URL}/organizations?user=${user.name}`, {
-        headers: {
+
+      let headersObj;
+      if (process.env.NODE_ENV === "production") {
+        headersObj = {
+          'Authorization': `Bearer ${token}`,
+        }
+      } else {
+        headersObj = {
           'Authorization': `Bearer ${token}`,
           'ngrok-skip-browser-warning': '1',
         }
+      }
+
+      await axios.get(`${PIPELINECI_API_URL}/organizations?user=${user.name}`, {
+        headers: headersObj
       })
       .then(res => {
         const orgData = res.data;
