@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 
 const PIPELINECI_API_URL = process.env.REACT_APP_PIPELINECI_API_URL;
+const GITHUB_APP_NAME    = process.env.REACT_APP_GITHUB_APP_NAME;
 
 function CreateOrganization() {
   const [orgName, setOrgName] = useState("");
@@ -28,7 +29,7 @@ function CreateOrganization() {
         redirectUrl: location.origin,
       });
 
-      window.location.href = `https://github.com/apps/pipelineci2024/installations/new?state=${stateValue}`;
+      window.location.href = `https://github.com/apps/${GITHUB_APP_NAME}/installations/new?state=${stateValue}`;
 
     } catch(err) {
       console.error("Error on form submit: ", err);
