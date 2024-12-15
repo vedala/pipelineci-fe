@@ -7,14 +7,15 @@ const PIPELINECI_API_URL = process.env.REACT_APP_PIPELINECI_API_URL;
 function CreateOrganization() {
   const [orgName, setOrgName] = useState("");
 
-  const { getAccessTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const token = await getAccessTokenSilently();
       const postOrgResponse = await axios.post(`${PIPELINECI_API_URL}/organizations`, {
-        orgName
+        orgName,
+        userId: user.sub,
       }, {
         headers: { 'Authorization': `Bearer ${token}`}
       });
