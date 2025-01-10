@@ -15,6 +15,7 @@ import AuthenticationGuard from './components/AuthenticationGuard';
 import CreateOrganization from './components/CreateOrganization';
 import OrganizationHome from './components/OrganizationHome';
 import CallbackEndpoint from './components/CallbackEndpoint';
+import Projects from './components/Projects';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -45,6 +46,10 @@ function App() {
           <Route
             path="/create-organization"
             element={<AuthenticationGuard component={CreateOrganization} />}
+          />
+          <Route
+            path="/projects"
+            element={<AuthenticationGuard component={Projects}/>}
           />
           <Route
             path="/callback-redirect-endpoint"
