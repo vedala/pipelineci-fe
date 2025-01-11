@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const PIPELINECI_API_URL = process.env.REACT_APP_PIPELINECI_API_URL;
@@ -88,7 +89,11 @@ function Projects() {
 
   const projectList = projects.map((project) => {
     return (
-      <li>{project.name}</li>
+      <li key={project.id}>
+        <span>{project.name}</span>
+        &nbsp;
+        <Link to={`/show-project-runs/${project.id}`}>Show Runs</Link>
+      </li>
     )
   })
 
