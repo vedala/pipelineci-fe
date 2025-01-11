@@ -44,9 +44,9 @@ function Runs() {
   const runsList = runs.map((run) => {
     return (
       <li key={run.id}>
-        <span>Id: {run.id}</span>
-        <span>SHA: {run.sha}</span>
-        <span>Branch: {run.branch}</span>
+        <span><b>Id:</b> {run.id}</span>&nbsp;
+        <span><b>SHA:</b> {run.sha}</span>&nbsp;
+        <span><b>Branch:</b> {run.branch}</span>
       </li>
     )
   });
