@@ -46,7 +46,8 @@ function Runs() {
       <li key={run.id}>
         <span><b>Id:</b> {run.id}</span>&nbsp;
         <span><b>SHA:</b> {run.sha}</span>&nbsp;
-        <span><b>Branch:</b> {run.branch}</span>
+        <span><b>Branch:</b> {run.branch}</span>&nbsp;
+        <span><b>Status:</b> {run.status}</span>
       </li>
     )
   });
