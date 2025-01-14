@@ -40,3 +40,14 @@
 li {
   list-style-type: none;
 }
+
+.navbar .title {
+  margin-right: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navbar .logged-in-user {
+  margin-right: 30px;
+}
