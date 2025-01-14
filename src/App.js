@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -6,9 +5,6 @@ import {
  } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing';
-import LoginButton from './components/LoginButton';
-import LogoutButton from './components/LogoutButton';
-import SignupButton from './components/Signup';
 import Home from './components/Home';
 import PageNotFound from './components/PageNotFound';
 import AuthenticationGuard from './components/AuthenticationGuard';
@@ -17,20 +13,14 @@ import OrganizationHome from './components/OrganizationHome';
 import CallbackEndpoint from './components/CallbackEndpoint';
 import Projects from './components/Projects';
 import Runs from './components/Runs';
+import NavBar from './components/NavBar';
 
 function App() {
-  const { isAuthenticated } = useAuth0();
 
   return (
     <Router>
       <div className="App">
-        { !isAuthenticated
-          ? <>
-              <LoginButton />
-              <SignupButton />
-            </>
-          : <LogoutButton />
-        }
+        <NavBar />
         <Routes>
           <Route
             path="/"
