@@ -52,7 +52,6 @@ console.log("user=", user);
   return (
     <>
       <h1>PipelineCI Home Page</h1>
-      <p>Logged in as: { user.name }</p>
       <Link to="/create-organization">Create Organization</Link>
       <ul>{orgList}</ul>
     </>
