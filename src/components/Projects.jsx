@@ -90,7 +90,7 @@ function Projects({selectedOrg, setSelectedOrg}) {
       <li key={project.id}>
         <span>{project.name}</span>
         &nbsp;
-        <Link to={`/show-project-runs/${project.id}`}>Show Runs</Link>
+        <Link to={`/show-project-runs/${project.id}/${project.name}`}>Show Runs</Link>
       </li>
     )
   })
