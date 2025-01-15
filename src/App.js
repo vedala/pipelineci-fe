@@ -47,7 +47,7 @@ function App() {
             element={<AuthenticationGuard component={Projects} selectedOrg={selectedOrg} setSelectedOrg={setSelectedOrg}/>}
           />
           <Route
-            path="/show-project-runs/:projectId/:projectName"
+            path="/show-project-runs/:orgName/:projectId/:projectName"
             element={<AuthenticationGuard component={Runs}/>}
           />
           <Route
