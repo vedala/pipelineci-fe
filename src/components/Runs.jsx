@@ -10,7 +10,7 @@ function Runs() {
 
   const [runs, setRuns] = useState([]);
 
-  const { projectId } = useParams();
+  const { projectId, projectName } = useParams();
 
   useEffect(() => {
     async function fetchData() {
@@ -55,7 +55,7 @@ function Runs() {
   return (
     <>
       <h1>Runs Home</h1>
-      <h2>Project: {projectId}</h2>
+      <h2>Project: {projectName}</h2>
       <label>
         Runs:
         <ul>{runsList}</ul>
