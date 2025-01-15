@@ -5,11 +5,10 @@ import axios from "axios";
 
 const PIPELINECI_API_URL = process.env.REACT_APP_PIPELINECI_API_URL;
 
-function Projects() {
+function Projects({selectedOrg, setSelectedOrg}) {
   const { user, getAccessTokenSilently } = useAuth0();
 
   const [organizations, setOrganizations] = useState([]);
-  const [selectedOrg,   setSelectedOrg]   = useState({key: "", value: ""});
   const [projects,      setProjects]      = useState([]);
 
   useEffect(() => {
@@ -34,7 +33,6 @@ function Projects() {
       .then(res => {
         const orgData = res.data;
         setOrganizations(orgData);
-        setSelectedOrg({key: orgData[0].id, value: orgData[0].value});
       })
       .catch(err => { console.log(err); throw err; });
     }
