@@ -3,6 +3,8 @@ import {
   Routes,
   Route,
  } from 'react-router-dom';
+import { useState } from "react";
+
 import './App.css';
 import Landing from './components/Landing';
 import Home from './components/Home';
@@ -16,6 +18,8 @@ import Runs from './components/Runs';
 import NavBar from './components/NavBar';
 
 function App() {
+
+  const [selectedOrg,   setSelectedOrg]   = useState({key: "", value: ""});
 
   return (
     <Router>
@@ -40,7 +44,7 @@ function App() {
           />
           <Route
             path="/projects"
-            element={<AuthenticationGuard component={Projects}/>}
+            element={<AuthenticationGuard component={Projects} selectedOrg={selectedOrg} setSelectedOrg={setSelectedOrg}/>}
           />
           <Route
             path="/show-project-runs/:projectId"
