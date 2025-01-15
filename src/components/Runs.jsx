@@ -43,7 +43,7 @@ function Runs() {
 
   const runsList = runs.map((run) => {
     return (
-      <li key={run.id}>
+      <li key={run.id} className="listitem">
         <span><b>Id:</b> {run.id}</span>&nbsp;
         <span><b>SHA:</b> {run.sha}</span>&nbsp;
         <span><b>Branch:</b> {run.branch}</span>&nbsp;
@@ -53,13 +53,13 @@ function Runs() {
   });
 
   return (
-    <>
-      <h1>Runs Home</h1>
+    <div className="runs">
+      <h1>Runs</h1>
       <h3>Organization: {orgName}, Project: {projectName}</h3>
       <label>
-        <ul>{runsList}</ul>
+        <ul className="list">{runsList}</ul>
       </label>
-    </>
+    </div>
   );
 }
 
