@@ -55,3 +55,15 @@ li {
 .navbar .logged-in-user {
   margin-right: 30px;
 }
+
+.runs {
+  margin-top: 50px;
+}
+
+.runs .list {
+  margin-top: 30px;
+}
+
+.runs .listitem {
+  margin-top: 10px;
+}
