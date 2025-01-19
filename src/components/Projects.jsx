@@ -85,6 +85,10 @@ function Projects({selectedOrg, setSelectedOrg}) {
     );
   });
 
+  orgOptionList.unshift(
+    <option key={0} disabled value="">-- select an organization --</option>
+  )
+
   const projectList = projects.map((project) => {
     return (
       <li key={project.id}>
