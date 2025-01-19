@@ -102,7 +102,6 @@ function Projects({selectedOrg, setSelectedOrg}) {
   return (
     <>
       <h1>Projects</h1>
-      <p>Logged in as: { user.name }</p>
       <label>
         Select an organization:
         <select
